@@ -1,0 +1,33 @@
+iOS:
+  -- It designed for Apple devices like iPhone & iPod Touch(portable media player with some smartphone-like features).
+  -- It mainly written in c, c++ , assembly language , objective-c, Swift(Gromming One).
+  -- It is a Commercial Based Source.
+  -- Siri as voice assistant.
+  -- It Block 3rd Party app stores.
+
+Android:
+  -- It is a Open Source s/w
+  -- Written in c, c++, java.
+  -- Google has Google Assistance.
+  -- Latest version of Android is 14.
+
+
+Dart:
+  -- Its an Object-Oriented language with c-style syntax.
+  -- It supports object-oriented principles, such as classes, interfaces, objects, and inheritance.
+  -- Doesn't support arrays.
+  -- Dart collections can be used to replicate data structures such as arrays, generics, and optional typing.
+  -- List, sets and maps are used to handle and organize collection of data.
+  -- It also supports generics for creating reusable and type-safe( the compiler can identify inconsistencies or type mismatches in the code before it runs) collections or functions.
+
+
+Flutter:
+  -- It used to build mobile, web, desktop from a single code base.
+  -- Excellent performance and rich user interface.
+  -- Widgets: Flutter uses a widget-based system for creating user interfaces. Everything in Flutter is a widget, allowing developers to build complex UIs by combining and nesting various widgets.
+  -- Hot Reload : In Flutter development, Dart supports a "hot reload" feature, enabling developers to see changes instantly during development without losing the app's state.
+  -- collection of packages and plugins available via the pub.dev repository.
+  -- Why Use Flutter:
+Cross-platform Development: Write code once and deploy it across multiple platforms, reducing development time and effort.
+Fast Development: The hot reload feature speeds up the development process by allowing immediate feedback on code changes.
+Performance: Native compilation results in high-performing applications with smooth user experiences.
