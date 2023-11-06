@@ -3,10 +3,10 @@ void main(){
   //printing string 
   print("Hello");
 
-  //printing initiger
+  //printing integer
   print( 5);
 
-  //priniting a variable using string interpolation 
+  //printing a variable using string interpolation 
   int num1 =5;
   print("The number is: $num1");
 

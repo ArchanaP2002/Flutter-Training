@@ -5,15 +5,15 @@ void main(List<String> arguments) {
    //printing string 
   print("Hello");
 
-  //printing initiger
+  //printing integer
   print( 5);
 
-  //priniting a variable using string interpolation 
+  //printing a variable using string interpolation 
   int num1 =5;
   print("The number is: $num1");
 
   //concatenating string
-  String name ="Archana";
+  String name =" Archana ";
   print('Name:' + name);
 
   int a=5 , b =6;

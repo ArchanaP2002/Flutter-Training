@@ -27,8 +27,8 @@ void main() {
   print(name.length);
   print(name.runes);
   //int name1 = int.parse(name);
-  int intvalue = int.parse(name);
-  print(intvalue.runtimeType);
+  int name1 = int.parse(name);
+  print(name1.runtimeType);
 
  // boolean
   bool istrue = true;
