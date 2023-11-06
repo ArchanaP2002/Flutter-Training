@@ -1,0 +1,1 @@
+//no float and long data types in number

@@ -1,6 +1,8 @@
-void main(){
+//import 'package:condition_statements/condition_statements.dart' as condition_statements;
 
-  //printing string 
+void main(List<String> arguments) {
+  // print('Hello world: ${condition_statements.calculate()}!');
+   //printing string 
   print("Hello");
 
   //printing initiger
@@ -18,6 +20,5 @@ void main(){
   print( a-b);
   a = a-b;  //Reassigning 
   print ('sum of $a and $b is ${a+b}'); //printing multiple values
- 
  
 }
