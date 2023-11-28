@@ -8,9 +8,9 @@ void main() {
   print("Updated Age: $age");
 
   //explicit declaration
-  int num = 30;
+  int number = 30;
   String message = "Hello All!";
-  print('num: $num & message: $message');
+  print('num: $number & message: $message');
 
   // Constant declaration
   const double piValue = 3.14159;
@@ -33,8 +33,11 @@ void main() {
   ''';
   print(multiLine);
 
+  num age1 = 23;
+  print( age1);
+
   //next line and tab
 
-  print(' hello \n kanini'); // \n for next line
+  print('hello \n kanini'); // \n for next line
   print('kanini\torganization'); // \t giving space
 }
