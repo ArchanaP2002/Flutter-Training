@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -12,9 +14,9 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Text Box Example'),
         ),
-        body: Center(
+        body: const Center(
           child: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: EdgeInsets.all(16.0),
             child: TextFieldExample(),
           ),
         ),
@@ -24,12 +26,14 @@ class MyApp extends StatelessWidget {
 }
 
 class TextFieldExample extends StatefulWidget {
+  const TextFieldExample({super.key});
+
   @override
   _TextFieldExampleState createState() => _TextFieldExampleState();
 }
 
 class _TextFieldExampleState extends State<TextFieldExample> {
-  TextEditingController _controller = TextEditingController();
+  final TextEditingController _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -38,20 +42,20 @@ class _TextFieldExampleState extends State<TextFieldExample> {
       children: [
         TextField(
           controller: _controller,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             hintText: 'Enter your text...',
             labelText: 'Text Box',
             border: OutlineInputBorder(),
           ),
         ),
-        SizedBox(height: 16.0),
+        const SizedBox(height: 16.0),
         ElevatedButton(
           onPressed: () {
             String enteredText = _controller.text;
             // Do something with the entered text
             print('Entered Text: $enteredText');
           },
-          child: Text('Submit'),
+          child: const Text('Submit'),
         ),
       ],
     );
