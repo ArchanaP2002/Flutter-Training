@@ -58,11 +58,11 @@ class _BasicScreenState extends State<BasicScreen> {
             .toLocal()
             .toString();
         formattedDate = (DateTime.parse(date).month == 1)
-            ? DateFormat('d MMM, yy').format(DateTime.parse(date))
-            : DateFormat('d MMMM, yy').format(DateTime.parse(date));
+            ? DateFormat('d MMM ,yy').format(DateTime.parse(date))
+            : DateFormat('d MMMM ,yy').format(DateTime.parse(date));
       });
       formattedTime = DateFormat('hh:mm a').format(DateTime.parse(date));
-      formattedDay = DateFormat('EEE').format(DateTime.parse(date));
+      formattedDay = DateFormat('EEEE').format(DateTime.parse(date));
     } catch (e) {
       // Handle the error
       print('Error: $e');
@@ -84,7 +84,7 @@ class _BasicScreenState extends State<BasicScreen> {
         windSpeed = data['wind']['speed'].toString();
         humidity = data['main']['humidity'].toString();
         locationName = data['name'];
-        date = DateTime.fromMillisecondsSinceEpoch(data['dt'] * 1000)
+               date = DateTime.fromMillisecondsSinceEpoch(data['dt'] * 1000)
             .toLocal()
             .toString();
         formattedDate = (DateTime.parse(date).month == 1)
@@ -93,7 +93,7 @@ class _BasicScreenState extends State<BasicScreen> {
       });
       formattedTime = DateFormat('hh:mm a').format(DateTime.parse(date));
       formattedDay = DateFormat('EEEE').format(DateTime.parse(date));
-      //  day = DateFormat('EEEE').format(DateTime.fromMillisecondsSinceEpoch(data['dt'] * 1000));
+        //  day = DateFormat('EEEE').format(DateTime.fromMillisecondsSinceEpoch(data['dt'] * 1000));
     } catch (e) {
       // Handle the error
       print('Error: $e');
@@ -188,29 +188,29 @@ class _BasicScreenState extends State<BasicScreen> {
         Positioned(
           top: 100,
           left: 30,
-          child: Text(
-            '$locationName',
-            style: TextStyle(color: Colors.white, fontSize: 30),
+          // child: Text(
+          //   'Location',
+          //   style: TextStyle(color: Colors.white, fontSize: 20),
+          // )
+          child: Column(
+            children: [
+              Text(
+                '$locationName',
+                style: TextStyle(color: Colors.white, fontSize: 30),
+              ),
+              Text(
+                '$formattedTime - $formattedDay $formattedDate ',
+                style: TextStyle(color: Colors.white, fontSize: 20),
+              )
+            ],
           ),
         ),
-
-        Positioned(
-            top: 140,
-            left: 30,
-            // child: Text(
-            //   'Location',
-            //   style: TextStyle(color: Colors.white, fontSize: 20),
-            // )
-            child: Text(
-              '$formattedTime - $formattedDay $formattedDate ',
-              style: TextStyle(color: Colors.white, fontSize: 20),
-            )),
         // temperature
         Positioned(
             top: 300,
             left: 30,
             child: Text(
-              '$temperature °',
+              '$temperature',
               style: TextStyle(color: Colors.white, fontSize: 60),
             )),
 
@@ -266,29 +266,10 @@ class _BasicScreenState extends State<BasicScreen> {
                           fontWeight: FontWeight.bold)),
                   const Text('Km/h \n',
                       style: TextStyle(color: Colors.white, fontSize: 20)),
-        //           const Divider(
-        //             // color: Colors.white,
-        //             decoration: BoxDecoration(
-        //   gradient: LinearGradient(
-        //     begin: Alignment.topCenter,
-        //     end: Alignment.bottomCenter,
-        //     colors: [Colors.blue, Colors.grey.shade900],
-        //   ),
-        // ),
-        //             thickness: 1,
-        //           ),
-         Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              colors: [Colors.transparent, Colors.green],
-            ),
-          ),
-          child: const Divider(
-            thickness: 1,
-          ),
-        ),
+                  const Divider(
+                    // color: Colors.white,
+                    thickness: 1,
+                  ),
                 ],
               )),
         ),
@@ -313,22 +294,10 @@ class _BasicScreenState extends State<BasicScreen> {
                           fontWeight: FontWeight.bold)),
                   const Text('%\n',
                       style: TextStyle(color: Colors.white, fontSize: 20)),
-                  // const Divider(
-                  //   // color: Colors.white,
-                  //   thickness: 1,
-                  // ),
-                  SliderTheme(data: SliderTheme.of(context).copyWith(
-                    activeTickMarkColor: Colors.green,
-                    inactiveTrackColor: Colors.transparent,
-                    trackHeight: 4.0,
-                    thumbColor: Colors.green,
-                    overlayColor: Colors.green.withOpacity(0.3),
-                  ), child: Slider(
-                    value: 0.5 ,
-                    onChanged: (value){
-
-                    },
-                  ))
+                  const Divider(
+                    // color: Colors.white,
+                    thickness: 1,
+                  ),
                 ],
               )),
         ),
