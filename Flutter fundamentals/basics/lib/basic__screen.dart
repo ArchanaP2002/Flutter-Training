@@ -38,7 +38,7 @@ class _BasicScreenState extends State<BasicScreen> {
       Position position = await Geolocator.getCurrentPosition(
           desiredAccuracy: LocationAccuracy.high);
 
-      final apiKey = '1386de923ccb808fc0965373473f8df5';
+      const apiKey = '1386de923ccb808fc0965373473f8df5';
 
       // Check if a custom location is already provided
       // String location = locationController.text.isNotEmpty
@@ -70,7 +70,7 @@ class _BasicScreenState extends State<BasicScreen> {
   }
 
   Future<void> fetchData() async {
-    final apiKey = '1386de923ccb808fc0965373473f8df5';
+    const apiKey = '1386de923ccb808fc0965373473f8df5';
     //final location = 'Chennai';
     final location = locationController.text.isNotEmpty
         ? locationController.text
@@ -91,7 +91,7 @@ class _BasicScreenState extends State<BasicScreen> {
             ? DateFormat('d MMM ,yy').format(DateTime.parse(date))
             : DateFormat('d MMMM ,yy').format(DateTime.parse(date));
       });
-      formattedTime = DateFormat('hh:mm a').format(DateTime.parse(date));
+      formattedTime = DateFormat('hh:mm aa').format(DateTime.parse(date));
       formattedDay = DateFormat('EEEE').format(DateTime.parse(date));
       //  day = DateFormat('EEEE').format(DateTime.fromMillisecondsSinceEpoch(data['dt'] * 1000));
     } catch (e) {
@@ -106,7 +106,10 @@ class _BasicScreenState extends State<BasicScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Search Location'),
+          title: const Text(
+            'Search Location',
+            style: TextStyle(fontFamily: 'Poppins-Regular'),
+          ),
           content: TextField(
             controller: locationController,
             decoration:
@@ -117,13 +120,19 @@ class _BasicScreenState extends State<BasicScreen> {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: const Text('Cancel'),
+              child: const Text(
+                'Cancel',
+                style: TextStyle(fontFamily: 'Poppins-Regular'),
+              ),
             ),
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop(locationController.text);
               },
-              child: const Text('Search'),
+              child: const Text(
+                'Search',
+                style: TextStyle(fontFamily: 'Poppins-Regular'),
+              ),
             ),
           ],
         );
@@ -189,29 +198,42 @@ class _BasicScreenState extends State<BasicScreen> {
           top: 100,
           left: 30,
           child: Text(
-            '$locationName',
-            style: TextStyle(color: Colors.white, fontSize: 30),
+            locationName,
+            style: const TextStyle(
+                color: Colors.white,
+                fontSize: 30,
+                fontWeight: FontWeight.w600,
+                fontFamily: 'Poppins-Regular'),
           ),
         ),
-
+        const Positioned(
+          child: SizedBox(height: 30),
+        ),
         Positioned(
-            top: 140,
+            top: 180,
             left: 30,
             // child: Text(
             //   'Location',
             //   style: TextStyle(color: Colors.white, fontSize: 20),
             // )
             child: Text(
-              '$formattedTime - $formattedDay $formattedDate ',
-              style: TextStyle(color: Colors.white, fontSize: 20),
+              '$formattedTime -- $formattedDay $formattedDate ',
+              style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 13,
+                  fontWeight: FontWeight.w300,
+                  fontFamily: 'Poppins-Regular'),
             )),
         // temperature
         Positioned(
             top: 300,
             left: 30,
             child: Text(
-              '$temperature °',
-              style: TextStyle(color: Colors.white, fontSize: 60),
+              '$temperature°',
+              style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 60,
+                  fontFamily: 'Poppins-Regular'),
             )),
 
         // Description
@@ -227,7 +249,10 @@ class _BasicScreenState extends State<BasicScreen> {
                 ),
                 Text(
                   ' $description',
-                  style: TextStyle(color: Colors.white, fontSize: 20),
+                  style: const TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'Poppins-Regular',
+                      fontSize: 20),
                 )
               ],
             )),
@@ -257,38 +282,45 @@ class _BasicScreenState extends State<BasicScreen> {
                 children: [
                   const Text(
                     'Wind',
-                    style: TextStyle(color: Colors.white, fontSize: 25),
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'Poppins-Regular',
+                        fontSize: 25),
                   ),
                   Text('$windSpeed',
                       style: const TextStyle(
                           color: Colors.white,
                           fontSize: 20,
+                          fontFamily: 'Poppins-Regular',
                           fontWeight: FontWeight.bold)),
                   const Text('Km/h \n',
-                      style: TextStyle(color: Colors.white, fontSize: 20)),
-        //           const Divider(
-        //             // color: Colors.white,
-        //             decoration: BoxDecoration(
-        //   gradient: LinearGradient(
-        //     begin: Alignment.topCenter,
-        //     end: Alignment.bottomCenter,
-        //     colors: [Colors.blue, Colors.grey.shade900],
-        //   ),
-        // ),
-        //             thickness: 1,
-        //           ),
-         Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              colors: [Colors.transparent, Colors.green],
-            ),
-          ),
-          child: const Divider(
-            thickness: 1,
-          ),
-        ),
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontFamily: 'Poppins-Regular')),
+                  //           const Divider(
+                  //             // color: Colors.white,
+                  //             decoration: BoxDecoration(
+                  //   gradient: LinearGradient(
+                  //     begin: Alignment.topCenter,
+                  //     end: Alignment.bottomCenter,
+                  //     colors: [Colors.blue, Colors.grey.shade900],
+                  //   ),
+                  // ),
+                  //             thickness: 1,
+                  //           ),
+                  Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                        colors: [Colors.transparent, Colors.green],
+                      ),
+                    ),
+                    child: const Divider(
+                      thickness: 1,
+                    ),
+                  ),
                 ],
               )),
         ),
@@ -304,31 +336,38 @@ class _BasicScreenState extends State<BasicScreen> {
                 children: [
                   const Text(
                     'Temp',
-                    style: TextStyle(color: Colors.white, fontSize: 25),
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 25,
+                        fontFamily: 'Poppins-Regular'),
                   ),
-                  Text('$temperature',
+                  Text(temperature,
                       style: const TextStyle(
                           color: Colors.white,
                           fontSize: 20,
+                          fontFamily: 'Poppins-Regular',
                           fontWeight: FontWeight.bold)),
                   const Text('%\n',
-                      style: TextStyle(color: Colors.white, fontSize: 20)),
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontFamily: 'Poppins-Regular')),
                   // const Divider(
                   //   // color: Colors.white,
                   //   thickness: 1,
                   // ),
-                  SliderTheme(data: SliderTheme.of(context).copyWith(
-                    activeTickMarkColor: Colors.green,
-                    inactiveTrackColor: Colors.transparent,
-                    trackHeight: 4.0,
-                    thumbColor: Colors.green,
-                    overlayColor: Colors.green.withOpacity(0.3),
-                  ), child: Slider(
-                    value: 0.5 ,
-                    onChanged: (value){
-
-                    },
-                  ))
+                  SliderTheme(
+                      data: SliderTheme.of(context).copyWith(
+                        activeTickMarkColor: Colors.green,
+                        inactiveTrackColor: Colors.transparent,
+                        trackHeight: 4.0,
+                        thumbColor: Colors.green,
+                        overlayColor: Colors.green.withOpacity(0.3),
+                      ),
+                      child: Slider(
+                        value: 0.5,
+                        onChanged: (value) {},
+                      ))
                 ],
               )),
         ),
@@ -344,15 +383,22 @@ class _BasicScreenState extends State<BasicScreen> {
                 children: [
                   const Text(
                     'Humidity',
-                    style: TextStyle(color: Colors.white, fontSize: 25),
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'Poppins-Regular',
+                        fontSize: 25),
                   ),
-                  Text('$humidity',
+                  Text(humidity,
                       style: const TextStyle(
                           color: Colors.white,
                           fontSize: 20,
+                          fontFamily: 'Poppins-Regular',
                           fontWeight: FontWeight.bold)),
                   const Text('% \n',
-                      style: TextStyle(color: Colors.white, fontSize: 20)),
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Poppins-Regular',
+                          fontSize: 20)),
                   const Divider(
                     // color: Colors.white,
                     thickness: 1,
